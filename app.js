@@ -15,6 +15,8 @@ function chatLimit(chat, data) {
     return chat;
 }
 
+io.origins(['https://ml-jsramverk.me/:443']);
+
 io.on('connection', function(socket) {
     let chatArr = [];
 
@@ -36,7 +38,3 @@ io.on('connection', function(socket) {
 });
 
 server.listen(8001);
-
-// io.origins(['https://socket-client.jsramverk.me:443']);
-// io.origins(['https://localhost:8001']);
-// io.set('origins', '*:*');
