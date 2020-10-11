@@ -16,7 +16,7 @@ function chatLimit(chat, data) {
     return chat;
 }
 
-app.use(cors({credentials: true, origin: 'https://ml-jsramverk.me'}));
+app.use(cors());
 
 io.origins(['https://ml-jsramverk.me/:443']);
 
