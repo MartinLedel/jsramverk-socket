@@ -37,4 +37,5 @@ io.on('connection', function(socket) {
     });
 });
 
+console.log("Server up and running on port 8300");
 server.listen(8300);
