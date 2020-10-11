@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+
+io.origins(['https://ml-jsramverk.me/:443']);
 
 function chatLimit(chat, data) {
     if (chat.length >= 5) {
@@ -15,10 +16,6 @@ function chatLimit(chat, data) {
 
     return chat;
 }
-
-app.use(cors());
-
-io.origins(['https://ml-jsramverk.me/:443']);
 
 io.on('connection', function(socket) {
     let chatArr = [];
