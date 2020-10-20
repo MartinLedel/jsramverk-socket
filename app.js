@@ -8,7 +8,7 @@ const colName = 'history';
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-// io.origins(['https://ml-jsramverk.me:443']);
+io.origins(['https://ml-jsramverk.me:443']);
 
 async function insertToCollection(msg) {
     const client  = await mongo.connect(dsn);
