@@ -22,14 +22,11 @@ async function insertToCollection(msg) {
 }
 
 io.on('connection', async function(socket) {
-    let chatArr = [];
-
     socket.on('user connecting', async function(user) {
         console.info('user connected', user);
         let data = `[${user.time}] User ${user.user} has connected`;
 
-        chatArr.push(data);
-        io.emit('user broadcast', chatArr);
+        io.emit('user broadcast', data);
         await insertToCollection(data).catch(console.dir);
     });
 
@@ -37,8 +34,7 @@ io.on('connection', async function(socket) {
         console.info('chat message', message);
         let data = `[${message.time}] ${message.user}: ${message.message}`;
 
-        chatArr.push(data);
-        io.emit('chat message', chatArr);
+        io.emit('chat message', data);
         await insertToCollection(data).catch(console.dir);
     });
 });
